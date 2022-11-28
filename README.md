@@ -1,4 +1,4 @@
-# PostFinance Checkout Subscriptions
+# PostFinance Checkout Subscription
 This repository contains the PostFinance Checkout Subscriptions addon that enables WooCommerce Subscriptions to be processed with [PostFinance Checkout](https://postfinance.ch/en/business/products/e-commerce/postfinance-checkout-all-in-one.html).
 
 ##### To use this extension, a [PostFinance Checkout](https://checkout.postfinance.ch/en-ch/user/signup) account is required.
