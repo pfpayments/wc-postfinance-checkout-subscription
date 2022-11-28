@@ -1,0 +1,100 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PostFinance Checkout Subscription\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-28 10:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: woocommerce-postfinancecheckout-subscription.php:395
+msgid "Payment Method Change"
+msgstr "Änderung der Zahlungsmethode"
+
+#: includes/class-wc-postfinancecheckout-subscription-migration.php:83
+#, php-format
+msgid "PostFinance Checkout %s+ has to be active."
+msgstr "PostFinance Checkout %s+ muss aktiv sein."
+
+#: includes/class-wc-postfinancecheckout-subscription-migration.php:89
+#, php-format
+msgid "PostFinance Checkout %s+ is required. (You're running version %s)"
+msgstr "PostFinance Checkout %s+ ist erforderlich. (Sie verwenden die Version %s)"
+
+#: includes/class-wc-postfinancecheckout-subscription-migration.php:94
+#, php-format
+msgid "Woocommerce Subscriptions %s+ has to be active."
+msgstr "Woocommerce Subscriptions %s+ müssen aktiv sein."
+
+#: includes/class-wc-postfinancecheckout-subscription-migration.php:100
+#, php-format
+msgid "Woocommerce Subscriptions %s+ is required. (You're running version %s)"
+msgstr "Woocommerce Subscriptions %s+ ist erforderlich. (Sie verwenden die Version %s)"
+
+#: includes/class-wc-postfinancecheckout-subscription-migration.php:105
+msgid "Could not activate plugin PostFinance Checkout Subscription"
+msgstr "Das Plugin PostFinance Checkout Subscription konnte nicht aktiviert werden"
+
+#: includes/class-wc-postfinancecheckout-subscription-migration.php:107
+msgid "Please check the following requirements before activating:"
+msgstr "Bitte prüfen Sie vor der Aktivierung die folgenden Voraussetzungen:"
+
+#: includes/class-wc-postfinancecheckout-subscription-gateway.php:58
+msgid "The token space and the configured space are not equal."
+msgstr "Der Tokenraum und der konfigurierte Raum sind nicht gleich."
+
+#: includes/class-wc-postfinancecheckout-subscription-gateway.php:62
+msgid "There is no token associated with this subscription."
+msgstr "Diesem Abonnement ist kein Token zugeordnet."
+
+#: includes/class-wc-postfinancecheckout-subscription-gateway.php:152
+msgid "The PostFinance Checkout Space Id value is required."
+msgstr "Der Wert PostFinance Checkout Space Id ist erforderlich."
+
+#: includes/class-wc-postfinancecheckout-subscription-gateway.php:155
+msgid ""
+"The PostFinance Checkout Space Id needs to be in the same space as configured in the main "
+"configuration."
+msgstr "Die PostFinance Checkout Space Id muss in demselben Space liegen, der in der Hauptkonfiguration konfiguriert wurde."
+
+#: includes/class-wc-postfinancecheckout-subscription-gateway.php:158
+msgid "The PostFinance Checkout Token Id value is required."
+msgstr "Der Wert PostFinance Checkout Token Id ist erforderlich."
+
+#: views/admin-notices/migration-failed.php:15
+msgid ""
+"There was an issue executing the migration for PostFinance Checkout "
+"Subscription."
+msgstr "Es gab ein Problem bei der Ausführung der Migration für PostFinance Checkout Subscription."
+
+#: views/admin-notices/plugin-deactivated.php:14
+msgid ""
+"PostFinance Checkout Subscription deactivated because one of its dependencies "
+"is no longer active."
+msgstr "PostFinance Checkout Subscription deaktiviert, da eine der Abhängigkeiten nicht mehr aktiv ist."
+
+#. Name of the plugin
+msgid "PostFinance Checkout Subscription"
+msgstr "PostFinance Checkout Subscription"
+
+#. Description of the plugin
+msgid "Addon to process WooCommerce Subscriptions with PostFinance Checkout"
+msgstr "Addon zur Verarbeitung von WooCommerce Subscriptions mit PostFinance Checkout"
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/wc-postfinance-checkout-subscription"
+msgstr "https://wordpress.org/plugins/wc-postfinance-checkout-subscription"
+
+#. Author of the plugin
+msgid "customweb GmbH"
+msgstr "customweb GmbH"
+
+#. Author URI of the plugin
+msgid "https://www.customweb.com"
+msgstr "https://www.customweb.com"

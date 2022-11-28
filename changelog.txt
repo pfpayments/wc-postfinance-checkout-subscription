@@ -1,0 +1,76 @@
+= 1.0.0 - April 11, 2018 =
+
+* Initial release.
+
+= 1.0.1 - July 05, 2018 =
+
+* Localization - Added german translations
+
+= 1.0.10 - November 2021, 2021 =
+
+* add german translations
+
+improve links on readme
+
+test release
+
+readme updates
+
+Bug fix, if space_view_id is not set, it does not send it to the service portal.
+
+= 1.0.2 - March 19, 2019 =
+
+* Fix - WooCommerce Subscription > 2.5.0
+
+= 1.0.3 - March 28, 2019 =
+
+* Fix - Issue with payment method change
+
+= 1.0.4 - April 01, 2019 =
+
+* Tweak - Handling of customer returning to shop, after offsite method change
+
+= 1.0.5 - June 05, 2019 =
+
+* Dev - Added filters to modify transaction
+
+= 1.0.6 - July 17, 2019 =
+
+* Tweak - Removed unused meta data
+
+= 1.0.7 - October 29, 2019 =
+
+* Dev - Updated supported plugin versions
+
+= 1.0.8 - November 20, 2019 =
+
+* Dev - Updated to latest SDK and updated plugin versions.
+
+= 1.0.9 - June 18, 2020 =
+
+* Tested plugin against wordpress version 5.7.2 and woocommerce 5.3.0
+
+## Features:
+- Support of Wordpress 6.1
+- Support of Woocommerce 7.0.1
+
+## Bugfixes:
+- Tested up to latest WP and WC versions.
+- Security fixes for sanitation, escaping and validation.
+- PHPCS and trademark fixes.
+- Removed unnecessary documentation files, as they are available online.
+- Removed calls to remote files for deprecated features.
+
+## Tested against:
+- PHP 7.4.32
+- Wordpress: 6.1
+- Woocommerce: 6.7.0
+
+## Bugfixes:
+- Travis file fix, no changes made to the plugin codebase
+
+## Tested against:
+- PHP 7.4.32
+- Wordpress: 6.1
+- Woocommerce: 6.7.0
+
