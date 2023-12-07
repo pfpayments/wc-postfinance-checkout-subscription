@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: PostFinance Checkout Subscription
- * Plugin URI: https://wordpress.org/plugins/wc-postfinance-checkout-subscription
+ * Plugin URI: https://wordpress.org/plugins/woo-postfinancecheckout-subscription
  * Description: Addon to process WooCommerce Subscriptions with PostFinance Checkout
- * Version: 1.1.2
+ * Version: 1.1.3
  * License: Apache2
  * License URI: http://www.apache.org/licenses/LICENSE-2.0
  * Author: wallee AG
@@ -36,7 +36,7 @@ if ( ! class_exists( 'WooCommerce_PostFinanceCheckout_Subscription' ) ) {
 		 *
 		 * @var string
 		 */
-		private $version = '1.1.2';
+		private $version = '1.1.3';
 
 		/**
 		 * The single instance of the class.
@@ -196,13 +196,13 @@ if ( ! class_exists( 'WooCommerce_PostFinanceCheckout_Subscription' ) ) {
 		 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
 		 *
 		 * Locales found in:
-		 * - WP_LANG_DIR/wc-postfinance-checkout-subscription/woo-postfinancecheckout-subscription-LOCALE.mo
+		 * - WP_LANG_DIR/woo-postfinancecheckout-subscription/woo-postfinancecheckout-subscription-LOCALE.mo
 		 */
 		public function load_plugin_textdomain() {
 			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
 			$locale = apply_filters( 'plugin_locale', $locale, 'woo-postfinancecheckout-subscription' );
 
-			load_textdomain( 'wc-postfinance-checkout-subscription', WP_LANG_DIR . '/woo-postfinance-checkout/woo-postfinancecheckout-subscription' . $locale . '.mo' );
+			load_textdomain( 'woo-postfinancecheckout-subscription', WP_LANG_DIR . '/woo-postfinancecheckout/woo-postfinancecheckout-subscription' . $locale . '.mo' );
 			load_plugin_textdomain( 'woo-postfinancecheckout-subscription', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 		}
 
@@ -491,7 +491,7 @@ if ( ! class_exists( 'WooCommerce_PostFinanceCheckout_Subscription' ) ) {
 		 * Fulfill in progress.
 		 *
 		 * @param \PostFinanceCheckout\Sdk\Model\Transaction $transaction Transaction.
-		 * @param mixed                                      $order Order.
+		 * @param mixed                                        $order Order.
 		 * @return void
 		 */
 		public function fulfill_in_progress( \PostFinanceCheckout\Sdk\Model\Transaction $transaction, $order ) {
@@ -663,7 +663,7 @@ if ( ! class_exists( 'WooCommerce_PostFinanceCheckout_Subscription' ) ) {
 		 * Update transaction from order.
 		 *
 		 * @param \PostFinanceCheckout\Sdk\Model\AbstractTransactionPending $transaction Transaction.
-		 * @param mixed                                                     $order Order.
+		 * @param mixed                                                       $order Order.
 		 * @return \PostFinanceCheckout\Sdk\Model\AbstractTransactionPending
 		 */
 		public function update_transaction_from_order( \PostFinanceCheckout\Sdk\Model\AbstractTransactionPending $transaction, $order ) {
@@ -680,7 +680,7 @@ if ( ! class_exists( 'WooCommerce_PostFinanceCheckout_Subscription' ) ) {
 		 * Update subscription data.
 		 *
 		 * @param \PostFinanceCheckout\Sdk\Model\Transaction $transaction Transaction.
-		 * @param mixed                                      $order Order.
+		 * @param mixed                                        $order Order.
 		 * @return void
 		 */
 		public function update_subscription_data( \PostFinanceCheckout\Sdk\Model\Transaction $transaction, $order ) {
@@ -730,7 +730,7 @@ if ( ! class_exists( 'WooCommerce_PostFinanceCheckout_Subscription' ) ) {
 		 *
 		 * @param WC_PostFinanceCheckout_Entity_Transaction_Info $info Info.
 		 * @param \PostFinanceCheckout\Sdk\Model\Transaction     $transaction Transaction.
-		 * @param WC_Order                                       $order Oder.
+		 * @param WC_Order                                         $order Oder.
 		 * @return WC_PostFinanceCheckout_Entity_Transaction_Info
 		 */
 		public function update_transaction_info( WC_PostFinanceCheckout_Entity_Transaction_Info $info, \PostFinanceCheckout\Sdk\Model\Transaction $transaction, WC_Order $order ) {

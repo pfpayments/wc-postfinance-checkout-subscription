@@ -99,11 +99,11 @@ class WC_PostFinanceCheckout_Subscription_Migration {
 
 		$errors = array();
 
-		if ( ! is_plugin_active( 'woo-postfinance-checkout/woocommerce-postfinancecheckout.php' ) ) {
+		if ( ! is_plugin_active( 'woo-postfinancecheckout/woocommerce-postfinancecheckout.php' ) ) {
 				/* translators: %s is replaced with "string" */
 			$errors[] = sprintf( __( 'PostFinance Checkout %s+ has to be active.', 'woo-postfinancecheckout-subscription' ), WC_POSTFINANCECHECKOUT_SUBSCRIPTION_REQUIRED_POSTFINANCECHECKOUT_VERSION );
 		} else {
-			$base_module_data = get_plugin_data( WP_PLUGIN_DIR . '/woo-postfinance-checkout/woocommerce-postfinancecheckout.php', false, false );
+			$base_module_data = get_plugin_data( WP_PLUGIN_DIR . '/woo-postfinancecheckout/woocommerce-postfinancecheckout.php', false, false );
 
 			if ( version_compare( $base_module_data['Version'], WC_POSTFINANCECHECKOUT_SUBSCRIPTION_REQUIRED_POSTFINANCECHECKOUT_VERSION, '<' ) ) {
 					/* translators: %s is replaced with "string" */
@@ -149,7 +149,7 @@ class WC_PostFinanceCheckout_Subscription_Migration {
 	public static function wpmu_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
 		global $wpdb;
 
-		if ( is_plugin_active_for_network( 'wc-postfinance-checkout-subscription/woo-postfinancecheckout-subscription.php' ) ) {
+		if ( is_plugin_active_for_network( 'woo-postfinancecheckout-subscription/woo-postfinancecheckout-subscription.php' ) ) {
 			$old_blog = $wpdb->blogid;
 			switch_to_blog( $blog_id );
 			self::migrate_db();

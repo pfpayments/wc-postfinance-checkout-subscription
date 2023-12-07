@@ -29,6 +29,8 @@ class WC_PostFinanceCheckout_Subscription_Service_Transaction extends WC_PostFin
 	 * @param int      $token_id    Token id.
 	 *
 	 * @return \PostFinanceCheckout\Sdk\Model\Transaction
+	 * @throws Exception
+	 * 	 If the transaction being created is not valid.
 	 */
 	public function create_transaction_by_renewal_order( WC_Order $order, $order_total, $token_id ) {
 		$space_id = get_option( WooCommerce_PostFinanceCheckout::CK_SPACE_ID );
@@ -43,6 +45,9 @@ class WC_PostFinanceCheckout_Subscription_Service_Transaction extends WC_PostFin
 		$this->set_modified_order_line_items( $order, $order_total, $create_transaction );
 
 		$create_transaction = apply_filters( 'wc_postfinancecheckout_subscription_create_transaction', $create_transaction, $order );
+		if (!$create_transaction->valid()) {
+			throw new Exception("The transaction you are trying to create is not valid.");
+		}
 		$transaction = $this->get_transaction_service()->create( $space_id, $create_transaction );
 		$this->update_transaction_info( $transaction, $order );
 		return $transaction;
@@ -51,9 +56,9 @@ class WC_PostFinanceCheckout_Subscription_Service_Transaction extends WC_PostFin
 	/**
 	 * Creates a transaction for the given order.
 	 *
-	 * @param WC_Order                                   $order       Order.
-	 * @param mixed                                      $order_total Order total.
-	 * @param int                                        $token_id    Token id.
+	 * @param WC_Order                                     $order       Order.
+	 * @param mixed                                        $order_total Order total.
+	 * @param int                                          $token_id    Token id.
 	 * @param \PostFinanceCheckout\Sdk\Model\Transaction $transaction Transaction.
 	 *
 	 * @return \PostFinanceCheckout\Sdk\Model\Transaction
@@ -82,8 +87,8 @@ class WC_PostFinanceCheckout_Subscription_Service_Transaction extends WC_PostFin
 	/**
 	 * Set modified order line items.
 	 *
-	 * @param WC_Order                                                  $order       Order.
-	 * @param mixed                                                     $order_total Order total.
+	 * @param WC_Order                                                    $order       Order.
+	 * @param mixed                                                       $order_total Order total.
 	 * @param \PostFinanceCheckout\Sdk\Model\AbstractTransactionPending $transaction Transaction.
 	 *
 	 * @return void
@@ -112,7 +117,7 @@ class WC_PostFinanceCheckout_Subscription_Service_Transaction extends WC_PostFin
 	/**
 	 * Set order line items.
 	 *
-	 * @param  WC_Order                                                  $order       Order.
+	 * @param  WC_Order                                                    $order       Order.
 	 * @param  \PostFinanceCheckout\Sdk\Model\AbstractTransactionPending $transaction Transaction.
 	 * @return void
 	 */

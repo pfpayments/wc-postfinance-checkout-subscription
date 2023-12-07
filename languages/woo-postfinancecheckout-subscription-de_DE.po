@@ -98,8 +98,8 @@ msgstr ""
 "PostFinance Checkout"
 
 #. URI of the plugin
-msgid "https://wordpress.org/plugins/wc-postfinancecheckout-subscription"
-msgstr "https://wordpress.org/plugins/wc-postfinancecheckout-subscription"
+msgid "https://wordpress.org/plugins/woo-postfinancecheckout-subscription"
+msgstr "https://wordpress.org/plugins/woo-postfinancecheckout-subscription"
 
 #. Author of the plugin
 msgid "customweb GmbH"

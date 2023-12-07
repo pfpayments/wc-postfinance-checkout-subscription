@@ -88,8 +88,8 @@ msgid "Addon to process WooCommerce Subscriptions with PostFinance Checkout"
 msgstr "Addon zur Verarbeitung von WooCommerce Subscriptions mit PostFinance Checkout"
 
 #. URI of the plugin
-msgid "https://wordpress.org/plugins/wc-postfinance-checkout-subscription"
-msgstr "https://wordpress.org/plugins/wc-postfinance-checkout-subscription"
+msgid "https://wordpress.org/plugins/woo-postfinancecheckout-subscription"
+msgstr "https://wordpress.org/plugins/woo-postfinancecheckout-subscription"
 
 #. Author of the plugin
 msgid "customweb GmbH"

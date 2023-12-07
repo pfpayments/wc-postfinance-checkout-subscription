@@ -80,7 +80,7 @@ class WC_PostFinanceCheckout_Subscription_Admin {
 	 */
 	public function handle_modules_active() {
 		// Subscription plugin or base plugin not activated.
-		if ( ! is_plugin_active( 'woocommerce-subscriptions/woocommerce-subscriptions.php' ) || ! is_plugin_active( 'woo-postfinance-checkout/woocommerce-postfinancecheckout.php' ) ) {
+		if ( ! is_plugin_active( 'woocommerce-subscriptions/woocommerce-subscriptions.php' ) || ! is_plugin_active( 'woo-postfinancecheckout/woocommerce-postfinancecheckout.php' ) ) {
 			// Deactivate plugin.
 			deactivate_plugins( WC_POSTFINANCECHECKOUT_SUBSCRIPTION_PLUGIN_BASENAME );
 			add_action(
