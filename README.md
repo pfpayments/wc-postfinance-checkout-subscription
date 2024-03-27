@@ -15,5 +15,5 @@ This repository contains the PostFinance Checkout Subscriptions addon that enabl
 
 ## License
 
-Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.3/LICENSE) for more information.
+Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.4/LICENSE) for more information.
 
