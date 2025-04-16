@@ -98,17 +98,11 @@ class WC_PostFinanceCheckout_Subscription_Gateway {
 	 */
 	public function process_scheduled_subscription_payment( $amount_to_charge, WC_Order $order ) {
 		try {
-			$token_space_id = get_post_meta( $order->get_id(), '_postfinancecheckout_subscription_space_id', true );
-			$token_id = get_post_meta( $order->get_id(), '_postfinancecheckout_subscription_token_id', true );
+			$token_data = $this->get_token_data_from_order($order);
 
-			if ( empty( $token_space_id ) || get_option( WooCommerce_PostFinanceCheckout::CK_SPACE_ID ) != $token_space_id ) {
-				$order->update_status( 'failed', __( 'The token space and the configured space are not equal.', 'woo-postfinancecheckout-subscription' ) );
-				return;
-			}
-			if ( empty( $token_id ) ) {
-				$order->update_status( 'failed', __( 'There is no token associated with this subscription.', 'woo-postfinancecheckout-subscription' ) );
-				return;
-			}
+			$token_space_id = $token_data['_wallee_subscription_space_id'];
+			$token_id = $token_data['_wallee_subscription_token_id'];
+
 			$transaction_service = WC_PostFinanceCheckout_Subscription_Service_Transaction::instance();
 
 			$transaction_info = WC_PostFinanceCheckout_Entity_Transaction_Info::load_by_order_id( $order->get_id() );
@@ -132,6 +126,57 @@ class WC_PostFinanceCheckout_Subscription_Gateway {
 			WooCommerce_PostFinanceCheckout_Subscription::instance()->log( $e->getMessage() . "\n" . $e->getTraceAsString() );
 			return;
 		}
+	}
+
+	/**
+	 * Get token data from original order
+	 *
+	 * @param WC_Order $order Order.
+	 * @return array
+	 */
+	private function get_token_data_from_order($order)
+	{
+		$order_id = $order->get_id();
+		$token_data = [];
+		$token_data['_postfinancecheckout_subscription_space_id'] = get_post_meta( $order_id, '_postfinancecheckout_subscription_space_id', true );
+		$token_data['_postfinancecheckout_subscription_token_id'] = get_post_meta( $order_id, '_postfinancecheckout_subscription_token_id', true );
+
+		if( ! isset($token_data['_postfinancecheckout_subscription_space_id']) || isset($token_data['_postfinancecheckout_subscription_token_id']) ) {
+
+			$subscriptions = wcs_get_subscriptions_for_renewal_order( $order_id );
+			// In theory, each of the array elements should contain the same token and space data
+			$subscription_object = array_pop($subscriptions);
+			$subscription_meta = $subscription_object->get_meta_data();
+			$token_data = [];
+			$wallee_subscription_keys = [
+				'_postfinancecheckout_subscription_space_id',
+				'_postfinancecheckout_subscription_token_id'
+			];
+
+			foreach( $subscription_meta as $meta_data ) {
+				$contained_data = $meta_data->get_data();
+				if ( in_array($contained_data['key'], $wallee_subscription_keys ) ) {
+					$token_data[$contained_data['key']] = $contained_data['value'];
+				}
+			}
+		}
+
+		if( ! isset($token_data['_postfinancecheckout_subscription_space_id']) ) {
+			$order->update_status( 'failed', __( 'No space ID is found.', 'woo-postfinancecheckout-subscription' ) );
+			throw new Exception('Missing space id details');
+		}
+
+		if( ! isset($token_data['_postfinancecheckout_subscription_token_id']) ) {
+			$order->update_status( 'failed', __( 'No token ID is found.', 'woo-postfinancecheckout-subscription' ) );
+			throw new Exception('Missing token id');
+		}
+
+		if ( get_option( WooCommerce_PostFinanceCheckout::POSTFINANCECHECKOUT_CK_SPACE_ID ) != $token_data['_postfinancecheckout_subscription_space_id'] ) {
+			$order->update_status( 'failed', __( 'The token space and the configured space are not equal.', 'woo-postfinancecheckout-subscription' ) );
+			throw new Exception('Token space does not match configured space');
+		}
+
+		return $token_data;
 	}
 
 
@@ -261,7 +306,7 @@ class WC_PostFinanceCheckout_Subscription_Gateway {
 		if ( $this->gateway->id === $payment_method_id ) {
 			if ( ! isset( $payment_meta['post_meta']['_postfinancecheckout_subscription_space_id']['value'] ) || empty( $payment_meta['post_meta']['_postfinancecheckout_subscription_space_id']['value'] ) ) {
 				throw new Exception( __( 'The PostFinance Checkout Space Id value is required.', 'woo-postfinancecheckout-subscription' ) );
-			} elseif ( get_option( WooCommerce_PostFinanceCheckout::CK_SPACE_ID ) != $payment_meta['post_meta']['_postfinancecheckout_subscription_space_id']['value'] ) {
+			} elseif ( get_option( WooCommerce_PostFinanceCheckout::POSTFINANCECHECKOUT_CK_SPACE_ID ) != $payment_meta['post_meta']['_postfinancecheckout_subscription_space_id']['value'] ) {
 				throw new Exception( __( 'The PostFinance Checkout Space Id needs to be in the same space as configured in the main configuration.', 'woo-postfinancecheckout-subscription' ) );
 			}
 			if ( ! isset( $payment_meta['post_meta']['_postfinancecheckout_subscription_token_id']['value'] ) || empty( $payment_meta['post_meta']['_postfinancecheckout_subscription_token_id']['value'] ) ) {

@@ -9,11 +9,11 @@ This repository contains the PostFinance Checkout Subscriptions addon that enabl
 
 * [Wordpress](https://wordpress.org/) 4.4 or later.
 * [Woocommerce](https://woocommerce.com/) 3.0 or later
-* [PostFinance Checkout Plugin](../../../woocommerce/) 1.2 or later
+* [PostFinance Checkout Plugin](../../../woocommerce/) 3.2.0 or later
 * [Woocommerce Subscriptions Plugin](https://woocommerce.com/products/woocommerce-subscriptions/) 2.2 or later
 * [PHP](http://php.net/) 5.6 or later
 
 ## License
 
-Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.5/LICENSE) for more information.
+Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.6/LICENSE) for more information.
 
