@@ -5,6 +5,10 @@ This repository contains the PostFinance Checkout Subscriptions addon that enabl
 
 ##### To use this extension, a [PostFinance Checkout](https://checkout.postfinance.ch/en-ch/user/signup) account is required.
 
+## Documentation
+
+* [Documentation](https://plugin-documentation.postfinance-checkout.ch/pfpayments/wc-postfinance-checkout-subscription/1.1.7/docs/en/documentation.html)
+
 ## Requirements
 
 * [Wordpress](https://wordpress.org/) 4.4 or later.
@@ -15,5 +19,5 @@ This repository contains the PostFinance Checkout Subscriptions addon that enabl
 
 ## License
 
-Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.6/LICENSE) for more information.
+Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.7/LICENSE) for more information.
 
