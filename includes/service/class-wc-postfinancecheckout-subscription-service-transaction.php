@@ -95,7 +95,7 @@ class WC_PostFinanceCheckout_Subscription_Service_Transaction extends WC_PostFin
 	 */
 	protected function set_modified_order_line_items( WC_Order $order, $order_total, \PostFinanceCheckout\Sdk\Model\AbstractTransactionPending $transaction ) {
 		$raw_items = WC_PostFinanceCheckout_Service_Line_Item::instance()->get_raw_items_from_order( $order );
-		$cleaned = WC_PostFinanceCheckout_Helper::instance()->cleanup_line_items( $raw_items, $order_total, $order->get_currency() );
+		$cleaned = WC_PostFinanceCheckout_Helper::instance()->cleanup_line_items( $raw_items, $order_total, $order->get_currency(), true );
 		$transaction->setLineItems( $cleaned );
 
 	}

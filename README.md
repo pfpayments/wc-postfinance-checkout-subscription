@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/pfpayments/wc-postfinance-checkout-subscription.svg?branch=master)](https://travis-ci.org/pfpayments/wc-postfinance-checkout-subscription)
-
 # PostFinance Checkout Subscriptions
 This repository contains the PostFinance Checkout Subscriptions addon that enables WooCommerce Subscriptions to be processed with [PostFinance Checkout](https://postfinance.ch/en/business/products/e-commerce/postfinance-checkout-all-in-one.html).
 
@@ -7,7 +5,7 @@ This repository contains the PostFinance Checkout Subscriptions addon that enabl
 
 ## Documentation
 
-* [Documentation](https://plugin-documentation.postfinance-checkout.ch/pfpayments/wc-postfinance-checkout-subscription/1.1.7/docs/en/documentation.html)
+* [Documentation](https://plugin-documentation.postfinance-checkout.ch/pfpayments/wc-postfinance-checkout-subscription/1.1.8/docs/en/documentation.html)
 
 ## Requirements
 
@@ -19,5 +17,5 @@ This repository contains the PostFinance Checkout Subscriptions addon that enabl
 
 ## License
 
-Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.7/LICENSE) for more information.
+Please see the [license file](https://github.com/pfpayments/wc-postfinance-checkout-subscription/blob/1.1.8/LICENSE) for more information.
 
