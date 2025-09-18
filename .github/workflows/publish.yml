@@ -34,6 +34,7 @@ jobs:
           cd ../;
           ls -ltrh
           pwd
+          rm -rf $GITHUB_WORKSPACE/build-woo
           mkdir -p $GITHUB_WORKSPACE/build-woo/src;
           rsync -r --exclude 'build-woo' --exclude 'wpcs' --exclude 'phpcs' --exclude '.git' --exclude '.github' --exclude '.travis.yml' --exclude 'README.md' . $GITHUB_WORKSPACE/build-woo/src;
           perl -plne 'print "$ENV{'FEATURES'}" if(/== Installation ==/); print "$ENV{'FAQ_ENTRIES'}" if(/== Changelog ==/);' $GITHUB_WORKSPACE/build-woo/src/readme.txt > $GITHUB_WORKSPACE/build-woo/src/readme_mod.txt;
