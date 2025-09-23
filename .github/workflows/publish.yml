@@ -64,6 +64,9 @@ jobs:
           tag: ${{ github.event.inputs.tag }}
           overwrite: true
 
+      - name: Set GITHUB_REF to tag manually
+        run: echo "GITHUB_REF=refs/tags/${{ github.event.inputs.tag }}" >> $GITHUB_ENV
+
       - name: WordPress Plugin Deploy
         id: deploy
         # does not deploy if it's testing repo
@@ -71,7 +74,6 @@ jobs:
         uses: 10up/action-wordpress-plugin-deploy@stable
         with:
           generate-zip: true
-          tag: ${{ github.event.inputs.tag }}
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
