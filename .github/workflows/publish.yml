@@ -61,7 +61,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ vars.WORDPRESS_ORG_SLUG }}.zip
           asset_name: ${{ vars.WORDPRESS_ORG_SLUG }}.zip
-          tag: ${{ github.ref }}
+          tag: ${{ github.event.inputs.tag }}
           overwrite: true
 
       - name: WordPress Plugin Deploy
