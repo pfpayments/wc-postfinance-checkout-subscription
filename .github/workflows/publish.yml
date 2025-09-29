@@ -74,6 +74,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          ASSETS_DIR: ${{ vars.WORDPRESS_ORG_SLUG }}/build-woo/src
+#          ASSETS_DIR: ${{ vars.WORDPRESS_ORG_SLUG }}/build-woo/src
+          ASSETS_DIR: .wordpress-org
           SLUG: ${{ vars.WORDPRESS_ORG_SLUG }}
           VERSION: ${{ github.event.inputs.tag }}
