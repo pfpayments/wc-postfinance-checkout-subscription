@@ -64,10 +64,6 @@ jobs:
           tag: ${{ github.event.inputs.tag }}
           overwrite: true
 
-      - name: Clear any cached SVN credentials
-        run: |
-          rm -rf ~/.subversion/auth/svn.simple || true  
-
       - name: WordPress Plugin Deploy
         id: deploy
         # does not deploy if it's testing repo
@@ -79,5 +75,5 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           ASSETS_DIR: ${{ vars.WORDPRESS_ORG_SLUG }}/build-woo/src
-          SLUG: wc-postfinance-checkout-subscription
+          SLUG: ${{ vars.WORDPRESS_ORG_SLUG }}
           VERSION: ${{ github.event.inputs.tag }}
