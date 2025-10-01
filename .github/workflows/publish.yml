@@ -64,6 +64,10 @@ jobs:
           tag: ${{ github.event.inputs.tag }}
           overwrite: true
 
+      - name: Clear any cached SVN credentials
+        run: |
+          rm -rf ~/.subversion/auth/svn.simple || true  
+
       - name: WordPress Plugin Deploy
         id: deploy
         # does not deploy if it's testing repo
