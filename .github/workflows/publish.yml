@@ -79,5 +79,5 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           ASSETS_DIR: ${{ vars.WORDPRESS_ORG_SLUG }}/build-woo/src
-          SLUG: ${{ vars.WORDPRESS_ORG_SLUG }}
+          SLUG: wc-postfinance-checkout-subscription
           VERSION: ${{ github.event.inputs.tag }}
