@@ -100,8 +100,8 @@ class WC_PostFinanceCheckout_Subscription_Gateway {
 		try {
 			$token_data = $this->get_token_data_from_order($order);
 
-			$token_space_id = $token_data['_wallee_subscription_space_id'];
-			$token_id = $token_data['_wallee_subscription_token_id'];
+			$token_space_id = $token_data['_postfinancecheckout_subscription_space_id'];
+			$token_id = $token_data['_postfinancecheckout_subscription_token_id'];
 
 			$transaction_service = WC_PostFinanceCheckout_Subscription_Service_Transaction::instance();
 
